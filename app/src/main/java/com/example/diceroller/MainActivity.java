@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     public void on_button_click(View view){
 
         TextView tv = this.findViewById(R.id.numberView);
+        TextView gs = this.findViewById(R.id.guessing);
+        TextView ms = this.findViewById(R.id.msg);
+
+        int newnumber = Integer.valueOf(tv.getText().toString());
+        int userIN = Integer.valueOf(gs.getText().toString());
 
         Random numberGenerated = new Random();
 
@@ -66,5 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
         tv.setText(Integer.toString(number));
 
+        if (newnumber == userIN){
+            ms.setText("Congratulations");
+        }
+
     }
+
+
 }
