@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_button_click(View view){
 
+        roll_the_dice();
+
         TextView tv = this.findViewById(R.id.numberView);
         TextView gs = this.findViewById(R.id.guessing);
         TextView ms = this.findViewById(R.id.msg);
@@ -69,12 +71,6 @@ public class MainActivity extends AppCompatActivity {
         int ScoreUpdater =0;
         int score1 =0;
 
-        Random numberGenerated = new Random();
-
-        int number = numberGenerated.nextInt(6 );
-
-        tv.setText(Integer.toString(number));
-
         if (newnumber == userIN){
             ms.setText("Congratulations");
             ScoreUpdater = ((ScoreUpdater +score1));
@@ -83,6 +79,42 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    public void on_buttonclick2(View view){
+
+        roll_the_dice();
+
+       TextView tv = this.findViewById(R.id.numberView);
+        TextView ms2 = this.findViewById(R.id.textView);
+
+        int newnumber = Integer.valueOf(tv.getText().toString());
+
+       if (newnumber == 1) {
+           ms2.setText("If you could go anywhere in the world, where would you go?" );
+       } else if (newnumber == 2){
+           ms2.setText("If you were stranded on a desert island, what three things would you want to take with you?");
+       }else if (newnumber == 3){
+           ms2.setText("If you could eat only one food for the rest of your life, what would that be?");
+       }else if (newnumber == 4){
+           ms2.setText("If you won a million dollars, what is the first thing you would buy?");
+       }else if (newnumber == 5){
+           ms2.setText("If you could spend the day with one fictional character, who would it be?");
+       }else if (newnumber == 6){
+           ms2.setText("If you found a magic lantern and a genie gave you three wishes, what would you wish?");
+       }
+
+    }
+
+    public void roll_the_dice(){
+
+        TextView tv = this.findViewById(R.id.numberView);
+
+        Random numberGenerated = new Random();
+
+        int number = numberGenerated.nextInt(6 ) +1;
+
+        tv.setText(Integer.toString(number));
     }
 
 
